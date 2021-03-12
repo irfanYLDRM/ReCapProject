@@ -26,7 +26,7 @@ namespace WebAPI.Controllers
             var result = _rentalService.GetAll();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
             return BadRequest(result);
         }
@@ -37,9 +37,20 @@ namespace WebAPI.Controllers
             var result = _rentalService.GetRentsById(id);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
-            return BadRequest(result.Data);
+            return BadRequest(result);
+        }
+
+        [HttpGet("getrentalldto")]
+        public IActionResult GetRentDetailsDto()
+        {
+            var result = _rentalService.GetRentAll();
+            if (result.Success)
+            {
+                return Ok(result);
+            }
+            return BadRequest(result);
         }
 
         [HttpGet("getrentdetailsdto")]
@@ -48,9 +59,9 @@ namespace WebAPI.Controllers
             var result = _rentalService.GetRentDetailsDto(id);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
-            return BadRequest(result.Data);
+            return BadRequest(result);
         }
 
         [HttpPost("add")]

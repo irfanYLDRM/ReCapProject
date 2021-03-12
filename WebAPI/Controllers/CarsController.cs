@@ -26,9 +26,9 @@ namespace WebAPI.Controllers
             var result = _carService.GetAll();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
-            return BadRequest(result.Data);
+            return BadRequest(result);
         }
 
         [HttpGet("getbyid")]
@@ -37,9 +37,9 @@ namespace WebAPI.Controllers
             var result = _carService.GetById(id);
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
-            return BadRequest(result.Data);
+            return BadRequest(result);
         }
 
         [HttpPost("add")]
@@ -75,15 +75,15 @@ namespace WebAPI.Controllers
             return BadRequest(result);
         }
 
-        [HttpGet("Dto")]
+        [HttpGet("getcarsdetailsdto")]
         public IActionResult CarsDetailDto()
         {
             var result = _carService.GetCarDetailsDto();
             if (result.Success)
             {
-                return Ok(result.Data);
+                return Ok(result);
             }
-            return BadRequest(result.Data);
+            return BadRequest(result);
         }
 
         

@@ -51,6 +51,11 @@ namespace Business.Conrete
             return new SuccessDataResult<List<Rental>>(_rentalDal.GetAll(), Messages.Listed);
         }
 
+        public IDataResult<List<RentalDetailDto>> GetRentAll()
+        {
+            return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentDetails());
+        }
+
         public IDataResult<List<RentalDetailDto>> GetRentDetailsDto(int carId)
         {
             return new SuccessDataResult<List<RentalDetailDto>>(_rentalDal.GetRentDetails(c => c.CarId == carId));
